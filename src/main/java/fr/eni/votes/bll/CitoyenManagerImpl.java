@@ -30,6 +30,7 @@ public class CitoyenManagerImpl implements CitoyenManager {
         if (citoyen.getAge() >= 18) {
             if (citoyen.getVote() == null) {
                 citoyen.setVote(candidat);
+
                 candidat.setVoteCount(candidat.getVoteCount() + 1);
                 citoyenDAO.save(citoyen);
                 System.out.println("- " +citoyen.getNom() + " agé de " + citoyen.getAge() + " ans, a voté pour " + candidat.getNom());
@@ -40,11 +41,6 @@ public class CitoyenManagerImpl implements CitoyenManager {
         } else {
             throw new IllegalArgumentException("!! Le citoyen " + citoyen.getNom() + " est trop jeune pour voter ! (" + citoyen.getAge() + " ans)");
         }
-    }
-
-    @Override
-    public List<Citoyen> getAllCitoyens() {
-        return (List<Citoyen>) citoyenDAO.findAll();
     }
 
 }

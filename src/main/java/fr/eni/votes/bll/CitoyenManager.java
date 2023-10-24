@@ -10,6 +10,6 @@ public interface CitoyenManager {
 
     Citoyen saisirCitoyen(String nom, String prenom, LocalDate ddn);
     void voter(Citoyen citoyen, Candidat candidat);
-    List<Citoyen> getAllCitoyens();
+
 
 }
